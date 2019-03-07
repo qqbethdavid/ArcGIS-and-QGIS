@@ -1,0 +1,27 @@
+To center the map in either the Pacific or Indian you simply reproject the data. 
+One projection that can be used is WGS 1984 PCD Mercator. This is the Projected
+CRS in World.
+
+In my case I was trying center the map in Australia so I tried to view it first
+I found a workaround by showing the map in Layout view, clicking the map and 
+right click to look for Properties/Coordinate System and from there I can create 
+a custom or  select any CRS and modify it. In my case I chose the Projected WGS 
+1984 Plate Carree and clicked modify and changed the central meridian to 150.000
+to situate it to Australia (150 I'm guessing is a longitude situated somewhere near
+Sydney). Then you can click Apply and then Ok. This is a procedure to view how it 
+goes. To entirely change the map in this projection you'll have to project 
+using the projection stated using the Arc toolbox.
+
+Now this created an eez map that is centered in Australia but the problem that arose is 
+a line that cannot be erased arosed from the area where it was split when it was
+in a GCS_WGS_1984 projection (where Africa is center and Pacific is split). In this
+case use the Arc toolbox and go to Data Management Tools/Feature Class/Integrate. 
+for the tolerance I only used what I googled in stackoverflow on how they did it. 
+But their case is different from mine since their split is actually a gap which is 
+510 m. Mine doesn't seem to have a gap but I used 510 m anyways and it worked some-
+how. Also remember that when you integrate there will be changes in the shapefile 
+Some lines or holes may disappear (if your polygon has holes). In my case some 
+holes (which represent islands) disappeared so I had to use Erase in Toolbox to
+gain them again (erase input is Big map). Also remember that when you use integrate 
+use it only on the said polygons with issues and not the whole shapefile. I selected 
+only the polygons with the split lines. 
