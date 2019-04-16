@@ -1,0 +1,6 @@
+I am reinstalling ArcGIS on QQ007. I used the file in the setup_ArcGIS and used the pvrs file in there
+as well (but the pvrs file does not work). I noticed when I used this ArcGIS iso file I was able to change the host name in the 
+ArcGIS Administrator to the name of the computer. I used QQ007 (don't use localhost it doesn't work). 
+
+When I used the ArcGIS in the other files in my D:\ I couldn't change the name of the host. So always use the 
+one in the folder setup_ArcGIS. Erase the other arcgis.
