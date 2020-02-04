@@ -1,0 +1,15 @@
+use this source:
+
+https://gis.stackexchange.com/questions/102180/calculating-acreage-using-arcgis-field-calculator/102185
+
+In ModelBuilder, drop in the Calculate Field tool (under Data Management | Fields toolbox) and use the expression !shape.area@acres! (make sure Expression Type is PYTHON or PYTHON_9.3.)
+
+Or, in ArcPy: arcpy.CalculateField_management(YourFeature, Field, "!shape.area@acres!", "PYTHON", "")
+
+It's possible to use a wide range of units for both area and length calculations this way:
+
+Shape and length properties of the geometry field can be modified with unit types expressed with an @ sign.
+
+Areal unit of measure keywords: ACRES | ARES | HECTARES | SQUARECENTIMETERS | SQUAREDECIMETERS | SQUAREINCHES | SQUAREFEET | SQUAREKILOMETERS | SQUAREMETERS | SQUAREMILES | SQUAREMILLIMETERS | SQUAREYARDS | SQUAREMAPUNITS | UNKNOWN
+
+Linear unit of measure keywords: CENTIMETERS | DECIMALDEGREES | DECIMETERS | FEET | INCHES | KILOMETERS | METERS | MILES | MILLIMETERS | NAUTICALMILES | POINTS | UNKNOWN | YARDS
