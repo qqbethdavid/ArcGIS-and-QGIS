@@ -50,3 +50,5 @@ Be sure to backup your data prior to running the tool since it will modify you d
 
 SOURCE: 
 https://gis.stackexchange.com/questions/237762/deleting-traces-after-dissolving-several-polygons-in-arcgis-desktop
+
+https://gis.stackexchange.com/questions/25914/smoothing-generalizing-polygon-in-qgis
