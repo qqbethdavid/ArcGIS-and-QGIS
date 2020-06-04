@@ -23,3 +23,5 @@ In my case I simplified using a tolerance of 500 m. Since my map units are degre
 With the Integrate tool I used a tolerance of 300 m or 500 m also can be used. 
 
 Then the dissolve tool was used and it worked. :)
+
+
