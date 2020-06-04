@@ -1,0 +1,17 @@
+I had a problem that every time I try to dissolve a polygon it does not dissolve into 
+just one whole polygon but instead it dissolves only some parts and the rest remain
+undissolved making it still a multi-part polygon. 
+
+This happens because the polygon is too heavy and has many vertices. To lighten the 
+polygon you must simplify it first. Simplify reduces the number of vertices in the polygon
+Use the simplify tool in Arc Arctoolbox/Cartography tools/Generalization/Simplify Polygon.
+After simplificatin then dissolve can be executed and it will work. 
+
+However, there are times even if you simplify it still a line is present and the polygon is divided into two
+but if you check the attribute table there is only one attribute and one row which says that 
+the polygon is not a multipart feature but is just one. It just so happens that it got 
+demarcated with a line or the boundary was not dissolved during the dissolve process. 
+This happens when the polygon you have before you dissolved it has slivers in it. So the 
+boundary is retained. So after simplifying the polygon you'll have to run the Integrate tool 
+Data management tools/feature class/integrate before you try to dissolve. This way you can correct
+the sliver and it will not cause a line that breaks the polygon after the dissolve process. 
