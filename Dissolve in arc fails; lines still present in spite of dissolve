@@ -14,9 +14,12 @@ demarcated with a line or the boundary was not dissolved during the dissolve pro
 This happens when the polygon you have before you dissolved it has slivers in it. So the 
 boundary is retained. So after simplifying the polygon you'll have to run the Integrate tool 
 Data management tools/feature class/integrate before you try to dissolve. This way you can correct
-the sliver and it will not cause a line that breaks the polygon after the dissolve process. 
+the sliver and it will not cause a line that breaks the polygon after the dissolve process.
 
+In Qgis this can also be done using the Simplify tool 
+Vector/Geometry tools/Simplify
 
+I did it in ArcGIS
 In my case I simplified using a tolerance of 500 m. Since my map units are degrees and 
 1 degree is equal to 111,139 m then that's 0.004 degrees. 
 
@@ -25,3 +28,25 @@ With the Integrate tool I used a tolerance of 300 m or 500 m also can be used.
 Then the dissolve tool was used and it worked. :)
 
 
+
+This can also be done using Postgis with the script 
+
+SELECT simplify(the_geom,500) as simpgeom 
+    FROM neighborhoods
+    
+(I need to find out first what the 500 in the script means. It could be referring to tolerance also).
+
+
+SOME POINTERS TO REMEMBER USING THE INTEGRATE TOOL 
+
+Integrate is used to maintain the integrity of shared feature boundaries by making features coincident 
+if they fall within the specified x,y tolerance. Features that fall within the specified x,y tolerance 
+are considered identical or coincident.
+
+Set the 'cluster_tolerance' variable as small as possible.
+
+Be sure to backup your data prior to running the tool since it will modify you data.
+
+
+SOURCE: 
+https://gis.stackexchange.com/questions/237762/deleting-traces-after-dissolving-several-polygons-in-arcgis-desktop
