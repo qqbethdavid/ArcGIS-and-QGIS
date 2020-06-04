@@ -15,3 +15,11 @@ This happens when the polygon you have before you dissolved it has slivers in it
 boundary is retained. So after simplifying the polygon you'll have to run the Integrate tool 
 Data management tools/feature class/integrate before you try to dissolve. This way you can correct
 the sliver and it will not cause a line that breaks the polygon after the dissolve process. 
+
+
+In my case I simplified using a tolerance of 500 m. Since my map units are degrees and 
+1 degree is equal to 111,139 m then that's 0.004 degrees. 
+
+With the Integrate tool I used a tolerance of 300 m or 500 m also can be used. 
+
+Then the dissolve tool was used and it worked. :)
