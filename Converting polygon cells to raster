@@ -1,0 +1,4 @@
+In arcgis you should use polygon to raster in arc toolbox. I was not successful when I used feature to polygon. 
+you must use a vector extent something similar to the raster you are going to make as processing extent.  This helps in fitting the raster
+into the polygon cells. But it will not perfectly work without adjusting the raster cell size. I made a trial and 
+error in finding the right cell size using the processing extent. 
