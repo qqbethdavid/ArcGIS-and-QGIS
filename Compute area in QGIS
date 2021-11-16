@@ -1,0 +1,31 @@
+TO change the CRS and compute the area using the Cylindrical Equal area you type the formula:
+
+area(transform($geometry, 'EPSG:4326', 'USER:100001'))/1000000  
+
+write first the orginal CRS of the polygon and next write the CRS you want the polygon to be 
+converted to. This will produce area values that are in CEA. 
+
+I tried converting the polygon to the user 100001 but it looks really skewed. It is possibly 
+like that because when I inspected the info in the CRS it is does not have an extent. So a 
+weird long polygon shows up in the northern part of the world map. So converting the polygon 
+to be able to compute for area is not advisable for QGIS. 
+
+Also if you converted the polygon to CEA in Arc. You can load this is QGIS and compute the 
+area but you will have to change the Project properties. (Go to Project/Properties and 
+change the measurement to none/planimetric and Square kilometers). This actually worked. But still 
+you can't use the polygon because it just might also be skewed for some reason. I haven't tried. 
+
+
+Check these sources: 
+https://gis.stackexchange.com/questions/186146/equal-area-world-qgis
+
+https://www.youtube.com/watch?v=Lx7hF2XpAgA
+
+https://gis.stackexchange.com/questions/23355/calculating-polygon-areas-in-shapefile-using-qgis
+
+
+Calculating polygon areas in shapefile using QGIS
+
+How do I calculate areas of an area shapefile in square meters (m²) or in acres (ha)?
+
+I didn't find that functionality in the Vector Tools.
