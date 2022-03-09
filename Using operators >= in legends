@@ -1,0 +1,13 @@
+I couldn't really see a greater than and equal sign exactly on the keyboard. I tried looking in the 
+character map but it doesn't seem to be listed there or I just missed it because I didn't have time 
+to thoroughly check because of too many things to do. I scoured through stackoverflow and found a 
+solution 
+
+https://gis.stackexchange.com/questions/280540/greater-than-or-equal-to-in-graduated-colors-label-arcgis-pro
+
+Alt + 242 works for changing the symbology, but doesn't seem to work if you want to change the symbol in a legend.
+
+Don't mind the message where "it doesn't seem to work in legend".It actually works in legend because you'll convert 
+the legend to graphics and then ungroup them so that you can make alterations to the text in the legend. 
+That's what I did. although the resulting greater than or equal sign was just too small so I isolated it and made it 
+bigger. 
