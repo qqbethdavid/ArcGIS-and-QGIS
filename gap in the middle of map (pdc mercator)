@@ -1,0 +1,12 @@
+This happens sometimes because one of your layers in the arc project is in gcs. Most of the time you'll need to 
+reproject your main layer to pcd mercator (along with the world map if still doesn't work). There are times also 
+that even if you projected it to pdc it still has a gap. I don't know if it's some kind of glitch. 
+
+But it is possible that the larger the cells the less gap to be seen and the smaller the cell size the more the gap is seen
+(but that is only my theory I don't know if it has a basis at all).
+
+What I did was I had one layer which was successfully reprojected and had no gaps. Then I had a second layer which 
+had a gap. THe correct raster is the one with the gap, that's what I was going to use but couldn't because of that 
+gap. So what I did was I put the first layer (without gap) under the one with the gap so that it will not show any 
+gaps at all. 
+
