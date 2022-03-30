@@ -15,6 +15,12 @@ area but you will have to change the Project properties. (Go to Project/Properti
 change the measurement to none/planimetric and Square kilometers). This actually worked. But still 
 you can't use the polygon because it just might also be skewed for some reason. I haven't tried. 
 
+Update on using the script in Qgis for computation of area!!!
+You only use this for polygons within the longitudes of probably -150 to 150 degree west and east.
+Area will have problems near and around the -180 to 180 degrees. The areas gets skewed. I don't know 
+why. I haven't had time to inspect why it occurs. So you can only use scripts in computing for CEA 
+area in the middle of a CEA or gcs map, but don't do it if you need to compute for the areas in the 
+periphery near -180 and 180 west and east.
 
 Check these sources: 
 https://gis.stackexchange.com/questions/186146/equal-area-world-qgis
