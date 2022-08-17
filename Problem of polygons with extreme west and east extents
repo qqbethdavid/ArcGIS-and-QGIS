@@ -1,0 +1,7 @@
+I found this in some polygons that are present in the database. I noticed many of them have 
+extents extending more than the GCS -180 and 180 degrees. This sometimes causes the polygon to get distorted 
+in the website (where the the regenerated distribution is shown). This I think is the cause 
+of the problem.  
+
+To change the extent, to -180 and 180 West- East reproject the polygon to GCS WGS 84 
+This works if your previous CRS is WGS 84. 
