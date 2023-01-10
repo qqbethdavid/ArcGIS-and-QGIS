@@ -5,3 +5,29 @@ of the problem.
 
 To change the extent, to -180 and 180 West- East reproject the polygon to GCS WGS 84 
 This works if your previous CRS is WGS 84. 
+
+
+
+For cases where a shapefile is encountered and its extents are way beyond -180 degrees (i.e. -260 degrees): 
+
+I encountered this in
+a shapefile for Ecoscope. I converted a KMZ file into a shapefile in QGIS. It showed fine in QGIS and ARC but when entered in 
+Dbeaver it just went crazy. It has error in its geom part which I couldn't determine. It is probably because of the KMZ to shapefile
+conversion. It was not because it had a less than normal extent. I tried fixing the geom in QGIS first but the error did not went away.
+What I did was simplify it in mapshaper and then fix geometry in QGIS and then it worked. There were no more errors when uploaded in 
+Dbeaver. 
+
+As for the extended extent of the shapefile, it seems to become normal (when I say normal I meant in GCS) when I process the shapefile with
+another one which has the GCS extent. It would be much better that before clicking the ok button for processing, click environments 
+and set the processing extent to the map that has the GCS extent (-180 to 180). This worked when I set the processing extent to the TM
+world borders shapefile. 
+
+But also, my shapefile is projected to GCS but the positioning is not GCS and the extents do not align with that of GCS. I tried projecting it
+again to GCS but it did not work, the extent does not change.
+To solve this first you inspect the shapefile with extended extent and try to figure out what projection that shapefile is 
+showing (could be PDC, could be others etc.) and project it to that CRS first. For my case I noticed the positioning is in PDC mercator, so I projected it 
+to PDC mercator and then afterwards I projected the reprojected map to GCS and this worked. It will help if before projection you set the 
+environments, Processing extent to the TM world borders where there is -180 to 180 extent. 
+
+
+
