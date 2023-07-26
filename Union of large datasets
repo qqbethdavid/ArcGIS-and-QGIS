@@ -1,0 +1,11 @@
+I made a union of large datasets like climate zone, eez and meow at the same time. This did not work. 
+It happened because I saved the resultant shapefile outside of a geodatabase. According to ESRI operations
+such as union, dissolve, merge etc are done in tiles and shapefiles can be stored outside a geodatabase only 
+at a maximum of 2gb (size). But for geodatabases it is unlimited; so better to do your operations inside the 
+geodatabase than saving it outside in a file folder. 
+
+I tried dissolving also the union between climate zone, eez and meow but this did not work either. 
+The reason was during the operation, (probably because 3 layers were unionized) some geometries had resulting 
+errors which need fixing (possible intersection of geometries and null geometries). I used the repair geometry 
+to fix it. Unfixed geometries can result to negative values of areas so better fix it first. 
+
