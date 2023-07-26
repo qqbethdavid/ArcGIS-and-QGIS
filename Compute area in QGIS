@@ -14,6 +14,12 @@ Also if you converted the polygon to CEA in Arc. You can load this is QGIS and c
 area but you will have to change the Project properties. (Go to Project/Properties and 
 change the measurement to none/planimetric and Square kilometers). This actually worked. But still 
 you can't use the polygon because it just might also be skewed for some reason. I haven't tried. 
+(UPDATE:I tried it and I found out that the polygon on the extremes longitude nearing -180 and 180 degrees, 
+when you compute the area in CEA, they are not accurate. They are not similar with the areas computed 
+by Arc. Qgis and Arc always have the same computation of area. I have tried it many times but with 
+CEA there seems to be a problem. Possible reason is the fact also that you cannot actually see 
+Cylindrical Equal Area in QGIS. I usually use a USER CRS such as the one above, USER 100001 to designate 
+CEA. (This is further explained in the paragraph below).
 
 Update on using the script in Qgis for computation of area!!!
 You only use this for polygons within the longitudes of probably -150 to 150 degree west and east.
