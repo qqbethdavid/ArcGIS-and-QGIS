@@ -28,6 +28,50 @@ why. I haven't had time to inspect why it occurs. So you can only use scripts in
 area in the middle of a CEA or gcs map, but don't do it if you need to compute for the areas in the 
 periphery near -180 and 180 west and east.
 
+
+
+-----ANOTHER WAY OF CALCULATING AREA IN QGIS----
+Make the layer editable, then use the field calculator (Layer > Open attribute table > Field Calculator).
+In some versions of QGIS you will find in Geometry the following formulas for area: 
+
+$area
+area
+$geometry
+
+
+About $area: 
+Returns the area of the current feature. The area calculated by this function 
+respects both the current project’s ellipsoid setting and area unit settings. 
+For example, if an ellipsoid has been set for the project then the calculated 
+area will be ellipsoidal, and if no ellipsoid is set then the calculated area 
+will be planimetric.
+
+About $geometry: 
+Returns the area of a geometry polygons object. Calculations are 
+always planimetric in the Spatial Reference System (SRS) of this 
+geometry, and the units of the returned area will match the units 
+for the SRS. This differs from the calculations performed by the 
+$area function, which will perform ellipsoidal calculations based 
+on the project's ellipsoid and area unit settings.
+
+
+The thing that worked and which did not produce errors in the -180 and 180 degrees
+is when I had the polygon already projected to CEA in ArcGIS. I loaded this in QGIS 
+and computed the area using "area" (not $area and not $geometry). This will prompt 
+an open parenthesis of which you will put geometry: 
+
+area(geometry)/1000000
+
+Naturally, if the area is not divided by 1000000 the area computed will be in square
+meters. 
+
+I think, using $area might not produce the correct areas and neither when I am trying 
+to project a GCS shapefile to CEA and at the same time getting the area like the 
+formula in row 3 of this document. To get accurate results just make sure your shapefile
+is already projected and use the formula in row 63. 
+
+
+
 Check these sources: 
 https://gis.stackexchange.com/questions/186146/equal-area-world-qgis
 
