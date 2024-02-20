@@ -1,0 +1,9 @@
+There was a time the Iterate Feature Selection in Model Builder did not work. 
+I use this tool to be able to separate one single shapefile which consists of many shapefiles
+in it.
+
+I used to to do it  in my folders and it worked, but now it does not seem to be working. 
+It is possible there is something in my folders which have a problem with the naming. 
+Probably something with a space or too much nesting of the folders. 
+
+I did it in the Default geodatabase and it worked 
