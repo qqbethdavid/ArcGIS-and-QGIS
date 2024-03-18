@@ -1,0 +1,20 @@
+creating zero values from null values of a raster:
+  This is if you have one or two pixels with your actual values for your first raster and you want to add this to another raster which is much 
+  larger and not of the same extent as your first raster. When you add the rasters together simply using the plus operator it will only 
+  give you an intersection of the rasters as the sum. This script will create actual values of your first raster, whatever value it is you 
+  want. 
+
+  Con(IsNull(raster), 0, 3)  
+
+for this case I wanted to create zero values for null areas and keep my single pixel at 3. 
+
+reference from ArcGIS 
+An example of using a complex expression in the Con tool is:
+
+OutRas = Con(InRas < 15, 10, 1)
+
+In the above expression, if the value of a cell in InRas is less than 15, 10 will be assigned to that cell location (true) on the output raster; 
+otherwise, cell values greater than or equal to 15 will be assigned 1 (false) on the output raster.
+If no value or expression is specified for the false expressions:
+
+OutRas = Con(InRas < 15, 10)
