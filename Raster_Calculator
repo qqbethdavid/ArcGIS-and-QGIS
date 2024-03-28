@@ -18,3 +18,7 @@ otherwise, cell values greater than or equal to 15 will be assigned 1 (false) on
 If no value or expression is specified for the false expressions:
 
 OutRas = Con(InRas < 15, 10)
+
+
+Other sources:
+https://gis.stackexchange.com/questions/163806/adding-two-raster-datasets-that-overlap-while-maintaining-extent-of-larger-raste
